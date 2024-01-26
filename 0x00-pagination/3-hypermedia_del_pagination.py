@@ -67,11 +67,10 @@ class Server:
             Dict: Hypermedia information containing index,
             next index, page size, and data.
         """
-        assert index is None or (isinstance(index,
-        int) and 0 <= index < len(self.indexed_dataset())),
+        assert index is None or
+        (isinstance(index, int) and 0 <= index < len(self.indexed_dataset())),
         "Index must be in a valid range."
-        assert isinstance(page_size,
-        int) and page_size > 0,
+        assert isinstance(page_size, int) and page_size > 0,
         "Page size must be a positive integer."
 
         if index is None:
