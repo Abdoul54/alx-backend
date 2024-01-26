@@ -6,6 +6,7 @@ Pagination using the Server class
 import csv
 from typing import List, Tuple
 
+
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Return a tuple of start and end indexes for a given page and page_size.
@@ -20,6 +21,7 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     start_index = (page - 1) * page_size
     end_index = page * page_size
     return start_index, end_index
+
 
 class Server:
     """Server class to paginate a database of popular baby names.
@@ -51,8 +53,14 @@ class Server:
         Returns:
             List[List]: The paginated dataset.
         """
-        assert isinstance(page, int) and page > 0, "Page must be a positive integer."
-        assert isinstance(page_size, int) and page_size > 0, "Page size must be a positive integer."
+        assert isinstance(
+            page,
+            int) and page > 0,
+            "Page must be a positive integer."
+        assert isinstance(
+            page_size,
+            int) and page_size > 0,
+            "Page size must be a positive integer."
 
         start_idx, end_idx = index_range(page, page_size)
         dataset = self.dataset()
